@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @step %> |
-<%= link_to 'Back', steps_path %>
+<%= link_to 'Show', list_step_path(@list, @step) %> |
+<%= link_to 'Back', list_steps_path(@list) %>

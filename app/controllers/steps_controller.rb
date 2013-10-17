@@ -1,8 +1,10 @@
 class StepsController < ApplicationController
   # GET /steps
   # GET /steps.json
+    before_filter :load_list
+
   def index
-    @steps = Step.all
+    @steps = @list.steps.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class StepsController < ApplicationController
   # GET /steps/1
   # GET /steps/1.json
   def show
-    @step = Step.find(params[:id])
+    @step = @list.steps.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class StepsController < ApplicationController
   # GET /steps/new
   # GET /steps/new.json
   def new
-    @step = Step.new
+    @step = @list.steps.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +36,18 @@ class StepsController < ApplicationController
 
   # GET /steps/1/edit
   def edit
-    @step = Step.find(params[:id])
+    @step = @list.steps.find(params[:id])
+    puts "hiii"
   end
 
   # POST /steps
   # POST /steps.json
   def create
-    @step = Step.new(params[:step])
+    @step = @list.steps.new(params[:step])
 
     respond_to do |format|
       if @step.save
-        format.html { redirect_to @step, notice: 'Step was successfully created.' }
+        format.html { redirect_to [@list, @step], notice: 'Step was successfully created.' }
         format.json { render json: @step, status: :created, location: @step }
       else
         format.html { render action: "new" }
@@ -56,11 +59,11 @@ class StepsController < ApplicationController
   # PUT /steps/1
   # PUT /steps/1.json
   def update
-    @step = Step.find(params[:id])
+    @step = @list.steps.find(params[:id])
 
     respond_to do |format|
       if @step.update_attributes(params[:step])
-        format.html { redirect_to @step, notice: 'Step was successfully updated.' }
+        format.html { redirect_to [@list, @step], notice: 'Step was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,12 +75,17 @@ class StepsController < ApplicationController
   # DELETE /steps/1
   # DELETE /steps/1.json
   def destroy
-    @step = Step.find(params[:id])
+    @step = @list.steps.find(params[:id])
     @step.destroy
 
     respond_to do |format|
-      format.html { redirect_to steps_url }
+      format.html { redirect_to list_steps_path(@list) }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def load_list
+    @list = List.find(params[:list_id])
   end
 end
