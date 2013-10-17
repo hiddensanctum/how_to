@@ -9,7 +9,7 @@ A simple "How-To" Site that explores the nested resources and how to route betwe
 
 ##Instructions Key
 * Change PARENT, CHILD, PROJECT_NAME to whatever you want to call them (DO NOT USE DEFAULT)
-* __BOLD__ means capitalized
+* \_B\_ means B is capitalized
 * Be EXTRA careful of "s"
 * \+ means add the code
 * \- means delete it
@@ -54,30 +54,30 @@ PROJECT_NAME::Application.routes.draw do
 class CHILDController < ApplicationController
 + before_filter :load_PARENT
 def index
-- @CHILDs = __C__HILD.all
+- @CHILDs = _C_HILD.all
 + @CHILDs = @PARENT.CHILDs.all
 
 def show
-- @CHILD = __C__HILD.find(params[:id])
+- @CHILD = _C_HILD.find(params[:id])
 + @CHILD = @PARENT.CHILDs.find(params[:id])
 
 def new
-- @CHILD = __C__HILD.new
+- @CHILD = _C_HILD.new
 + @CHILD = @PARENT.CHILDs.new
 
 def edit
-- @CHILD = __C__HILD.find(params[:id])
+- @CHILD = _C_HILD.find(params[:id])
 + @CHILD = @PARENT.CHILDs.find(params[:id])
 
 def create
-- @CHILD = __C__HILD.new(params[:CHILD])
+- @CHILD = _C_HILD.new(params[:CHILD])
 + @CHILD = @PARENT.CHILDs.new(params[:CHILD])
 
-- format.html { redirect_to @CHILD, notice: '__C__HILD was successfully created.' }
-+ format.html { redirect_to [@PARENT, @CHILD], notice: '__C__HILD was successfully created.' }
+- format.html { redirect_to @CHILD, notice: '_C_HILD was successfully created.' }
++ format.html { redirect_to [@PARENT, @CHILD], notice: '_C_HILD was successfully created.' }
 
 def destroy
-- @CHILD = __C__HILD.find(params[:id])
+- @CHILD = _C_HILD.find(params[:id])
 + @CHILD = @PARENT.CHILDs.find(params[:id])
 
 - format.html { redirect_to CHILDs_url }
@@ -108,8 +108,8 @@ def destroy
 + <td><%= link_to 'Edit', edit_PARENT_CHILD_path(@PARENT, CHILD) %></td>
 + <td><%= link_to 'Destroy', [@PARENT, CHILD], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-- <%= link_to 'New __C__HILD', new_CHILD_path %>
-+ <%= link_to 'New __C__HILD', new_PARENT_CHILD_path(@PARENT) %>
+- <%= link_to 'New _C_HILD', new_CHILD_path %>
++ <%= link_to 'New _C_HILD', new_PARENT_CHILD_path(@PARENT) %>
 
 # in file app/views/CHILDs/new.html.erb
 - <%= link_to 'Back', CHILDs_path %>
