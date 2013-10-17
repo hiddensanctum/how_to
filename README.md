@@ -8,28 +8,28 @@ Rails Version 3.2.14
 A simple "How-To" Site that explores the nested resources and how to route between them
 
 ##Instructions Key
-Change PARENT, CHILD, PROJECT_NAME to whatever you want to call them (DO NOT USE DEFAULT)
-__BOLD__ means capitalized
-Be EXTRA careful of "s"
-+ means add the code
-- means delete it
+* Change PARENT, CHILD, PROJECT_NAME to whatever you want to call them (DO NOT USE DEFAULT)
+* __BOLD__ means capitalized
+* Be EXTRA careful of "s"
+* \+ means add the code
+* \- means delete it
 
 ##Instructions
 
-#Create Brand New Rails App
+###Create Brand New Rails App
 ```shell
 $ rails _3.2.14_ new PROJECT_NAME --skip-test-framework
 ```
-#Generate PARENT and CHILD scaffolds
+###Generate PARENT and CHILD scaffolds
 ```shell
 $ rails generate scaffold PARENT_NAME title description:text --skip-test-framework
 $ rails generate scaffold CHILD_NAME title description:text PARENT_id:integer --skip-test-framework
 ```
-#Migrate your database
+###Migrate your database
 ```shell
 $ rake db:migrate
 ```
-#Add PARENT and CHILD relationship
+###Add PARENT and CHILD relationship
 ```shell
 # in file app/models/PARENT.rb
 class PARENT < ActiveRecord::Base
@@ -48,7 +48,7 @@ PROJECT_NAME::Application.routes.draw do
 +  resources :CHILD
 + end
 ```
-#Modify CHILD controllers
+###Modify CHILD controllers
 ```shell
 # in file app/controllers/CHILD_controller.rb
 class CHILDController < ApplicationController
@@ -88,7 +88,7 @@ def destroy
 +    @PARENT = __P__ARENT.find(params[:PARENT_id])
 +  end
 ```
-#Modify CHILD views
+###Modify CHILD views
 ```shell
 # in file app/views/CHILDs/_form.html.erb
 - <%= form_for(@CHILD) do |f| %>
