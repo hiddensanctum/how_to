@@ -93,13 +93,17 @@ def destroy
 # in file app/views/CHILDs/_form.html.erb
 - <%= form_for(@CHILD) do |f| %>
 + <%= form_for([@PARENT, @CHILD]) do |f| %>
+```
 
+```shell
 # in file app/views/CHILDs/edit.html.erb
 - <%= link_to 'Show', @CHILD %> |
 - <%= link_to 'Back', CHILDs_path %>
 + <%= link_to 'Show', PARENT_CHILD_path(@PARENT, @CHILD) %> |
 + <%= link_to 'Back', PARENT_CHILDs_path(@PARENT) %>
+```
 
+```shell
 # in file app/views/CHILDs/index.html.erb
 - <td><%= link_to 'Show', CHILD %></td>
 - <td><%= link_to 'Edit', edit_CHILD_path(CHILD) %></td>
@@ -110,11 +114,15 @@ def destroy
 
 - <%= link_to 'New _C_HILD', new_CHILD_path %>
 + <%= link_to 'New _C_HILD', new_PARENT_CHILD_path(@PARENT) %>
+```
 
+```shell
 # in file app/views/CHILDs/new.html.erb
 - <%= link_to 'Back', CHILDs_path %>
 + <%= link_to 'Back', PARENT_CHILDs_path(@PARENT) %>
+```
 
+```shell
 # in file app/views/CHILDs/show.html.erb
 - <%= link_to 'Edit', edit_CHILD_path(@CHILD) %> |
 - <%= link_to 'Back', CHILDs_path %>
