@@ -124,8 +124,8 @@ def destroy
 A Basic Barebone Nested Rails App should be made at this point
 
 ##Further Reading
-[Ruby on Rails Guide to Routing][1] specifically 2.7 Nested Resources
-[Tutorial on Creating Nested Resource][2] by [jhjguxin](https://gist.github.com/jhjguxin)
+* [Ruby on Rails Guide to Routing][1] specifically 2.7 Nested Resources
+* [Tutorial on Creating Nested Resource][2] by [jhjguxin](https://gist.github.com/jhjguxin)
 
 [1]: http://guides.rubyonrails.org/v3.2.13/routing.html
 [2]: https://gist.github.com/jhjguxin/3074080
