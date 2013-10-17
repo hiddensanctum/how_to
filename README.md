@@ -22,8 +22,8 @@ $ rails _3.2.14_ new PROJECT_NAME --skip-test-framework
 ```
 ###Generate PARENT and CHILD scaffolds
 ```shell
-$ rails generate scaffold PARENT_NAME title description:text --skip-test-framework
-$ rails generate scaffold CHILD_NAME title description:text PARENT_id:integer --skip-test-framework
+$ rails generate scaffold PARENT title description:text --skip-test-framework
+$ rails generate scaffold CHILD title description:text PARENT_id:integer --skip-test-framework
 ```
 ###Migrate your database
 ```shell
