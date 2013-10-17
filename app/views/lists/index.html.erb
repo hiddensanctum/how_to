@@ -1,4 +1,4 @@
-<h1>Listing lists</h1>
+<h1>How To List</h1>
 
 <table>
   <tr>
@@ -11,8 +11,8 @@
 
 <% @lists.each do |list| %>
   <tr>
-    <td><%= list.title %></td>
-    <td><%= list.description %></td>
+    <td><%= link_to list.title, list_steps_path(list) %></td>
+    <td><%= link_to list.description, list_steps_path(list) %></td>
     <td><%= link_to 'Show', list %></td>
     <td><%= link_to 'Edit', edit_list_path(list) %></td>
     <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
