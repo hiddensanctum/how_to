@@ -1,7 +1,8 @@
 #A "How-To" Site
 
-By James Chuang
-Rails Version 3.2.14
+* By James Chuang
+* Rails Version 3.2.14
+* Based on [Tutorial][2] by [jhjguxin](https://gist.github.com/jhjguxin)
 
 ##Description
 
@@ -85,7 +86,7 @@ def destroy
 
 + private
 +  def load_PARENT
-+    @PARENT = __P__ARENT.find(params[:PARENT_id])
++    @PARENT = _P_ARENT.find(params[:PARENT_id])
 +  end
 ```
 ###Modify CHILD views
@@ -129,7 +130,9 @@ def destroy
 + <%= link_to 'Edit', edit_PARENT_CHILD_path(@PARENT, @CHILD) %> |
 + <%= link_to 'Back', PARENT_CHILDs_path(@PARENT) %>
 ```
-A Basic Barebone Nested Rails App should be made at this point
+You should have a basic barebone nested rails app at this point.
+
+Feel free to customize the views in any way you would like
 
 ##Further Reading
 * [Ruby on Rails Guide to Routing][1] specifically 2.7 Nested Resources
